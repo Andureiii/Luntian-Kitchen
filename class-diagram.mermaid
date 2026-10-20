@@ -1,0 +1,37 @@
+classDiagram
+  class Table {
+    +number id
+    +string name
+    +string area
+    +number seats
+    +number deposit
+    +string emoji
+    +string description
+    +string[] features
+    +depositLabel() string
+    +fits(guests) boolean
+    +matches(query) boolean
+  }
+  class Reservation {
+    +number id
+    +Table table
+    +string name
+    +string phone
+    +string date
+    +string time
+    +number guests
+    +string notes
+    +deposit() number
+    +summary() string
+    +validate(values, table, existing)$ object
+  }
+  class AppContext {
+    +number[] favorites
+    +Reservation[] reservations
+    +toggleFavorite(id)
+    +addReservation(reservation)
+    +cancelReservation(id)
+  }
+  Reservation "*" --> "1" Table : books
+  AppContext "1" o-- "*" Reservation : reservations
+  AppContext "1" ..> "*" Table : favorites (by id)

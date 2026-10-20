@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-white font-body text-ink antialiased; }
+  h1, h2, h3 { @apply font-display tracking-tight text-deep; }
+}
+@layer components {
+  .btn { @apply inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2; }
+  .btn-primary { @apply btn bg-leaf text-white hover:bg-deep; }
+  .btn-soft { @apply btn bg-butter text-deep hover:bg-yellow-200; }
+  .btn-line { @apply btn border border-leaf/30 text-leaf hover:bg-mint; }
+  .field { @apply w-full rounded-xl border border-leaf/25 bg-white px-3.5 py-2.5 text-sm focus:border-leaf focus:outline-none focus:ring-2 focus:ring-leaf/30; }
+}
